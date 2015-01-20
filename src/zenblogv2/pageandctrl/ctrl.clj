@@ -4,13 +4,22 @@
             [com.ashafa.clutch :as cl]
             [zenblogv2.dbase :as db]
             [hiccup.core :as hc]
-            [zenblogv2.pageandctrl.homepage :refer :all] ))
+            [zenblogv2.pageandctrl.homepage :refer :all]
+            [zenblogv2.pageandctrl.postblog :refer :all]
+            [zenblogv2.pageandctrl.blogpage :refer :all]))
 
 ;;Pages
 
 (def ctitle " - zenius.net | The next revolution in learning")
 
+;;postblog
+(defn postpage []
+  (createpage postb (str "Post" ctitle)))
+
 ;;homepage
 (defn homepage []
   (createpage home (str "Home" ctitle)))
 
+;;blogpage
+(defn blogpage [id]
+  (createpage #(blogp id) (str "Blog" ctitle)))

@@ -1,6 +1,5 @@
 (ns zenblogv2.pageandctrl.pagelayout
-  (:require [net.cgrand.enlive-html :as html]
-             ))
+  (:require [net.cgrand.enlive-html :as html]))
 
 ;;layout
 
