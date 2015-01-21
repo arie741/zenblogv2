@@ -5,9 +5,9 @@
             [zenblogv2.dbase :as db]
             [hiccup.core :as hc]))
 
+
 (defn post [judul isi]
-  (cl/put-document db/db {:title judul :isi isi :rating 0}))
+  (cl/put-document db/db {:title judul :isi isi :rating 0 :date (db/indo-time-now)}))
 
 (html/deftemplate postb "selmer/postblog.html"
   [])
-

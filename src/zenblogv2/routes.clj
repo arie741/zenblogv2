@@ -10,6 +10,10 @@
 (defroutes home
   (GET "/" req
        (pages/homepage))
+  (GET "/hot" req
+       (pages/homepagehot))
+  (GET "/fresh" req
+       (pages/homepagefresh))
   (GET "/post" req
        (pages/postpage))
   (POST "/action-post" req

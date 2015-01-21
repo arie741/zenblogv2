@@ -5,6 +5,8 @@
             [zenblogv2.dbase :as db]
             [hiccup.core :as hc]
             [zenblogv2.pageandctrl.homepage :refer :all]
+            [zenblogv2.pageandctrl.homepagehot :as hot]
+            [zenblogv2.pageandctrl.homepagefresh :as fresh]
             [zenblogv2.pageandctrl.postblog :refer :all]
             [zenblogv2.pageandctrl.blogpage :refer :all]))
 
@@ -23,3 +25,11 @@
 ;;blogpage
 (defn blogpage [id]
   (createpage #(blogp id) (str "Blog" ctitle)))
+
+;;homepage
+(defn homepagehot []
+  (createpage hot/homehot (str "Home" ctitle)))
+
+;;homepage
+(defn homepagefresh []
+  (createpage fresh/homefresh (str "Home" ctitle)))
