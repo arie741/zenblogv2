@@ -15,6 +15,8 @@
 
 (html/deftemplate home "selmer/home.html"
   []
-  [:blogtemplate] (html/html-content (apply str (map #(blog (:key %) (take 500 (:value %)) (:id %)) (db/sort-by-rating)))))
+  [:blogtemplate] (html/html-content 
+                    (apply str (map #(blog (:title %) (take 500 (:isi %)) (:id %)) 
+                                    (db/sort-by-rating)))))
 
 
