@@ -6,8 +6,11 @@
             [hiccup.core :as hc]))
 
 
-(defn post [judul isi]
-  (cl/put-document db/db {:title judul :isi isi :rating 0 :date (db/indo-time-now)}))
+(defn post
+  "Please make a habit of writing a docstring"
+  [judul isi] 
+  (->> {:title judul :isi isi :rating 0 :date (db/indo-time-now)}
+       (cl/put-document db/db)))
 
 (html/deftemplate postb "selmer/postblog.html"
   [])
