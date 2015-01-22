@@ -5,10 +5,23 @@
             [zenblogv2.dbase :as db]
             [hiccup.core :as hc]))
 
-(defn blog [kjudul kisi kid]
-  (hc/html [:div {:class "panel"} "\n    " [:h2 kjudul] "\n    " [:p kisi "... " [:a {:href (str "/blog/" kid)} "Baca Selengkapnya"]]]))
+(defn blog
+  "What is this function do?"
+  [kjudul kisi kid]
+  ;; And this is how you indent hiccup
+  (hc/html [:div {:class "panel"}
+            "\n    "
+            [:h2 kjudul]
+            "\n    "
+            [:p kisi "... "
+             [:a {:href (str "/blog/" kid)} "Baca Selengkapnya"]]]))
 
 (html/deftemplate homehot "selmer/home.html"
   []
-  [:blogtemplate] (html/html-content (apply str (map #(blog (:title %) (take 500 (:isi %)) (:id %)) (db/sort-by-rating)))))
+  [:blogtemplate]
+  ;; And this is an example of using thread-last macro ->>
+  (->> (db/sort-by-rating)
+       (map #(blog (:title %) (take 500 (:isi %)) (:id %)))
+       (apply str)
+       (html/html-content)))
 
