@@ -11,9 +11,11 @@
   ;; rather than having its own copy. When the root binding
   ;; changes, the server picks it up without having to restart.
   (-> #'app
-      ; Makes static assets in $PROJECT_DIR/resources/public/ available.
+      ;; Makes static assets in
+      ;; $PROJECT_DIR/resources/public/ available.
       (wrap-file "resources")
-      ; Content-Type, Content-Length, and Last Modified headers for files in body
+      ;; Content-Type, Content-Length,
+      ;; and Last Modified headers for files in body
       (wrap-file-info)))
 
 (defn start-server
@@ -27,7 +29,8 @@
                     :auto-reload? true
                     :destroy destroy
                     :join? false}))
-    (println (str "You can view the site at http://localhost:" port))))
+    (->> (str "You can view the site at http://localhost:" port)
+         (println))))
 
 (defn stop-server []
   (.stop @server)
