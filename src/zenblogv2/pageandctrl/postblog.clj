@@ -13,4 +13,5 @@
        (cl/put-document db/db)))
 
 (html/deftemplate postb "selmer/postblog.html"
-  [])
+  []
+  )

@@ -5,8 +5,8 @@
             [clj-time.format :as f]))
 
 (def db (assoc (curl/url "https://jaquelton.cloudant.com/" "zenblog")
-          :username "jaquelton"
-          :password "sarcasm7412335"))
+          :username "henessitioulsookereduche"
+          :password "nKxH7EM6Kh1eca4LYkTSphbM"))
 
 (defn get-by-title []
   (cl/get-view db "title" "title"))

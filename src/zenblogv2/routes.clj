@@ -23,3 +23,5 @@
             (resp/redirect "/"))))
   (GET "/blog/:blogid" [blogid]
        (pages/blogpage blogid)))
+
+;;;;
