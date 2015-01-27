@@ -15,8 +15,8 @@
 (def ctitle " - zenius.net | The next revolution in learning")
 
 ;;postblog
-(defn postpage []
-  (createpage postb (str "Post" ctitle)))
+(defn postpage [anti-forgery-token]
+  (createpage #(postb anti-forgery-token) (str "Post" ctitle)))
 
 ;;homepage
 (defn homepage []

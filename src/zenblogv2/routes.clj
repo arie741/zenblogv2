@@ -15,7 +15,7 @@
   (GET "/fresh" req
        (pages/homepagefresh))
   (GET "/post" req
-       (pages/postpage))
+       (pages/postpage (:ring.middleware.anti-forgery/anti-forgery-token (:session req))))
   (POST "/action-post" req
         (let [bjudul (:judul (:params req))
               bisi (:isi (:params req))]

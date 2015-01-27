@@ -13,5 +13,8 @@
        (cl/put-document db/db)))
 
 (html/deftemplate postb "selmer/postblog.html"
-  []
-  )
+  [anti-forgery-token]
+  [:anti-forgery-field] (html/html-content (hc/html [:input {:id "__anti-forgery-token"
+                                                        :name "__anti-forgery-token"
+                                                        :type "hidden"
+                                                        :value anti-forgery-token}])))
