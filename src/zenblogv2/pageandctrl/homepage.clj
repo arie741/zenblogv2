@@ -6,7 +6,7 @@
             [hiccup.core :as hc]))
 
 (defn blog
-  "It would be nice if you tell others what this function does"
+  "This creates a html template for the blogs you see at the homepage"
   [kjudul kisi kid]
   (hc/html [:div {:class "panel"}
             "\n    " [:h2 kjudul] "\n    "

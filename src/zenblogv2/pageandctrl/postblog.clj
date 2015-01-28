@@ -7,7 +7,7 @@
 
 
 (defn post
-  "Please make a habit of writing a docstring"
+  "This funcion creates a new document on cloudant in the database 'zenblog'"
   [judul isi] 
   (->> {:title judul :isi isi :rating 0 :date (db/indo-time-now)}
        (cl/put-document db/db)))

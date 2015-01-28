@@ -8,5 +8,11 @@
 
 (html/deftemplate homefresh "selmer/home.html"
   []
-  [:blogtemplate] (html/html-content (apply str (map #(hp/blog (:title %) (take 500 (:isi %)) (:_id %)) (db/sort-by-date)))))
+  [:blogtemplate] (->> (db/sort-by-date)
+                         (map #(hp/blog (:title %) (take 500 (:isi %)) (:_id %)))
+                         (apply str)
+                         (html/html-content)))
+
+
+
 
