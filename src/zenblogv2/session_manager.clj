@@ -6,7 +6,8 @@
   (quot (System/currentTimeMillis) 1000))
 
 (defn- expired? [[id session]]
-  (pos? (- (:ring.middleware.session-timeout/idle-timeout session) (current-time))))
+  (pos? (- (:ring.middleware.session-timeout/idle-timeout session)
+           (current-time))))
   
 (defn- clear-expired [_ _]  
   (swap! mem #(->> % (filter expired?) (into {}))))

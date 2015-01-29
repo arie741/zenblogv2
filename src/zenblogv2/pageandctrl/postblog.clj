@@ -7,18 +7,16 @@
 
 
 (defn post
-<<<<<<< Updated upstream
   "This funcion creates a new document on cloudant in the database 'zenblog'"
-=======
-  "Please make a habit of writing a docstring"
->>>>>>> Stashed changes
   [judul isi] 
   (->> {:title judul :isi isi :rating 0 :date (db/indo-time-now)}
        (cl/put-document db/db)))
 
 (html/deftemplate postb "selmer/postblog.html"
   [anti-forgery-token]
-  [:anti-forgery-field] (html/html-content (hc/html [:input {:id "__anti-forgery-token"
-                                                        :name "__anti-forgery-token"
-                                                        :type "hidden"
-                                                        :value anti-forgery-token}])))
+  [:anti-forgery-field]
+  (html/html-content
+   (hc/html [:input {:id "__anti-forgery-token"
+                     :name "__anti-forgery-token"
+                     :type "hidden"
+                     :value anti-forgery-token}])))

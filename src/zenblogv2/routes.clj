@@ -15,12 +15,14 @@
   (GET "/fresh" req
        (pages/homepagefresh))
   (GET "/post" req
-       (pages/postpage (:ring.middleware.anti-forgery/anti-forgery-token (:session req))))
+       (pages/postpage
+        (:ring.middleware.anti-forgery/anti-forgery-token
+         (:session req))))
   (POST "/action-post" req
         (let [bjudul (:judul (:params req))
               bisi (:isi (:params req))]
           (do (post/post bjudul bisi) 
-            (resp/redirect "/"))))
+              (resp/redirect "/"))))
   (GET "/blog/:blogid" [blogid]
        (pages/blogpage blogid)))
 
