@@ -7,7 +7,11 @@
 
 
 (defn post
+<<<<<<< Updated upstream
   "This funcion creates a new document on cloudant in the database 'zenblog'"
+=======
+  "Please make a habit of writing a docstring"
+>>>>>>> Stashed changes
   [judul isi] 
   (->> {:title judul :isi isi :rating 0 :date (db/indo-time-now)}
        (cl/put-document db/db)))
