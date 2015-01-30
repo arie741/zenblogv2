@@ -34,3 +34,5 @@
 2015-Jan-22 18:15:31 +0700 QuestMac.local INFO [zenblogv2.handler] - shutdown complete!
 >>>>>>> Stashed changes
 2015-Jan-30 00:19:57 +0700 QuestMac.local INFO [zenblogv2.handler] - zenblogv2 started successfully
+2015-Jan-30 00:24:54 +0700 QuestMac.local INFO [zenblogv2.handler] - zenblogv2 is shutting down...
+2015-Jan-30 00:24:54 +0700 QuestMac.local INFO [zenblogv2.handler] - shutdown complete!
