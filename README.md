@@ -1,3 +1,5 @@
 # zenblogv2
 
-Add some readme info and at least tell people how to runt the app
+You can run it by `lein ring server`
+
+You now can open it on https://zenblogv2.herokuapp.com/
