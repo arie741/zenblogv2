@@ -8,7 +8,8 @@
             [zenblogv2.pageandctrl.homepagehot :as hot]
             [zenblogv2.pageandctrl.homepagefresh :as fresh]
             [zenblogv2.pageandctrl.postblog :refer :all]
-            [zenblogv2.pageandctrl.blogpage :refer :all]))
+            [zenblogv2.pageandctrl.blogpage :refer :all]
+            [zenblogv2.pageandctrl.homesearch :as homesea]))
 
 ;;Pages
 
@@ -26,10 +27,14 @@
 (defn blogpage [id]
   (createpage #(blogp id) (str "Blog" ctitle)))
 
-;;homepage
+;;homepagehot
 (defn homepagehot []
   (createpage hot/homehot (str "Home" ctitle)))
 
-;;homepage
+;;homepagefresh
 (defn homepagefresh []
   (createpage fresh/homefresh (str "Home" ctitle)))
+
+;;homesearch
+(defn homesea [sword]
+  (createpage #(homesea/homesea sword) (str "Search Result : " (str (homesea/countresult sword)) ctitle)))
