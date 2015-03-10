@@ -19,4 +19,5 @@
                     (apply str (map #(blog (:title %) (take 500 (:isi %)) (:_id %)) 
                                     (db/sort-by-rating)))))
 
+;;ghfufyjryuasdadasdas
 

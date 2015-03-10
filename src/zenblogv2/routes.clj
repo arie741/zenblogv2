@@ -6,10 +6,11 @@
             [noir.response :as resp]))
 
 
-
 (defroutes home
   (GET "/" req
        (pages/homepage))
+  (GET "/search" req
+        (pages/homesea (:q (:params req))))
   (GET "/hot" req
        (pages/homepagehot))
   (GET "/fresh" req
@@ -26,4 +27,4 @@
   (GET "/blog/:blogid" [blogid]
        (pages/blogpage blogid)))
 
-;;;;
+;;;;;;

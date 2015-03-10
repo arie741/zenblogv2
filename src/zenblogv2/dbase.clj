@@ -20,6 +20,9 @@
 (defn sort-by-rating []
   (map #(find-by-id (:id %)) (reverse (sort-by :key (view-by-rating)))))
 
+(defn search-by-title [sword]
+  (filter #(= (clojure.string/upper-case sword) (clojure.string/upper-case (:key %))) (get-by-title)))
+
 ;;time
 (def indonesia-time (f/formatter "HH-mm-ss-dd-MM-yyyy"))
 
