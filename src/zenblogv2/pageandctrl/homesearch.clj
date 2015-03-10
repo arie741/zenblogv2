@@ -8,7 +8,7 @@
 (defn countresult
   "This count the number of search shown on the page"
   [sword]
-  (count (db/search-by-title sword)))
+  (count (db/search-matches sword)))
 
 (defn sr
   "This creates a h4 'Search results:'"
@@ -30,7 +30,7 @@
   [:blogtemplate] (html/html-content
                     (str (apply str (sr sword))
                     (apply str (map #(blog (:key %) (take 500 (:value %)) (:id %)) 
-                                    (db/search-by-title sword))))))
+                                    (db/search-matches sword))))))
 
 
 ;;ghfufyjryuasdadasdas

@@ -20,8 +20,22 @@
 (defn sort-by-rating []
   (map #(find-by-id (:id %)) (reverse (sort-by :key (view-by-rating)))))
 
-(defn search-by-title [sword]
-  (filter #(= (clojure.string/upper-case sword) (clojure.string/upper-case (:key %))) (get-by-title)))
+;;search engine
+(defn string-splitter [strings] 
+  (map #(apply str %) (remove #(= \space (first %)) (partition-by #(= \space %) strings))))
+
+(defn cart [colls]
+  (if (empty? colls)
+    '(())
+    (for [x (first colls)
+          more (cart (rest colls))]
+      (cons x more))))
+
+(defn string-matcher [strone strtwo]
+  (count (filter true? (map #(apply = %) (cart (list (string-splitter (clojure.string/upper-case strone)) (string-splitter (clojure.string/upper-case strtwo))))))))
+
+(defn search-matches [string]
+  (filter #(> (string-matcher string (:key %)) 0) (get-by-title)))
 
 ;;time
 (def indonesia-time (f/formatter "HH-mm-ss-dd-MM-yyyy"))
